@@ -1,0 +1,6 @@
+---
+- name: apache role
+  hosts: appservers
+  become: true
+  roles:
+    - apache-role

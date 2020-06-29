@@ -1,0 +1,7 @@
+---
+# handlers file for apache-role
+- name: start http server
+  service:
+    name: httpd
+    state: restarted
+

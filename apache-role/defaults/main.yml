@@ -1,0 +1,4 @@
+---
+# defaults file for apache-role
+apache_test_message: This is a test message
+apache_webserver_port: 8080

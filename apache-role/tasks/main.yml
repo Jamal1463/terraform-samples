@@ -1,0 +1,27 @@
+---
+# tasks file for apache-role
+- name: Install httpd server
+  yum:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ packages }}'
+  notify: restart-httpd-service
+
+- name: Create dir
+  file:
+    path: /tmp/html
+    owner: root
+    mode: 777
+    state: directory
+
+- name: ensure index.html is present
+  template:
+     src: templates/index.html
+     dest: /tmp/html/index.html
+
+- name: httpd service is started
+  service:
+    name: httpd
+    state: restarted
+    enabled: yes
+
